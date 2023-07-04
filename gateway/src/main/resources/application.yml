@@ -1,0 +1,15 @@
+server:
+  port: 8082
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: user-service
+          uri: http://localhost:8080/
+          predicates:
+            - Path=/user/**
+        - id: product-service
+          uri: http://localhost:56774/
+          predicates:
+            - Path=/product/**
